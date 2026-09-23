@@ -173,7 +173,7 @@ theorem exists_group_rank_at_most_two_not_in_SG :
 final manuscript: some group outside `SG` has symmetric collision rank at most
 two.  As above, the `SG` clause merely appends the separate opaque assertion
 `sturmian_not_in_SG`; the verified content is the rank bound. -/
-theorem exists_group_symmetric_rank_at_most_two_not_in_SG :
+theorem exists_group_symmetric_rank_at_most_two_given_assumed_non_SG :
     ∃ (G : Type) (inst : Group G),
       @SymmetricCollisionRankAtMost G inst 2 ∧ ¬ @InSG G inst := by
   exact ⟨SturmianGroup, sturmianGroupStructure,

@@ -8,7 +8,7 @@
     "CollisionRank.relative_symmetric_rank_at_most_two",
     "CollisionRank.relative_symmetric_rank_at_most_two_expanded",
     "CollisionRank.sturmian_symmetric_rank_at_most_two",
-    "CollisionRank.exists_group_symmetric_rank_at_most_two_not_in_SG"
+    "CollisionRank.exists_group_symmetric_rank_at_most_two_given_assumed_non_SG"
   ],
   "permitted_axioms": [
     "propext",

@@ -113,7 +113,7 @@ This reruns the same audit included in `lake build`.
 ## Project structure
 
 ```text
-SymmetricCollisionRank/
+LeanCollisionRank/
 ├── main.lean                 seven public theorem statements
 ├── definitions.lean          23 public definitions
 ├── axioms.lean               seven external assumptions

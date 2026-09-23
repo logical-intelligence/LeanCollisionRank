@@ -1,0 +1,26 @@
+{
+  "challenge_module": "main",
+  "solution_module": "CollisionRank.Main",
+  "theorem_names": [
+    "CollisionRank.certificateCollisionSet_isLabelSet",
+    "CollisionRank.abstractCore_symmetric",
+    "CollisionRank.periodicSeparationCertificate",
+    "CollisionRank.relative_symmetric_rank_at_most_two",
+    "CollisionRank.relative_symmetric_rank_at_most_two_expanded",
+    "CollisionRank.sturmian_symmetric_rank_at_most_two",
+    "CollisionRank.exists_group_symmetric_rank_at_most_two_not_in_SG"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice",
+    "CollisionRank.SturmianGroup",
+    "CollisionRank.sturmianGroupStructure",
+    "CollisionRank.sturmianRealization",
+    "CollisionRank.sturmianHalfLineLocalFinite",
+    "CollisionRank.sturmianScaledPeriodicWindow",
+    "CollisionRank.InSG",
+    "CollisionRank.sturmian_not_in_SG"
+  ],
+  "enable_nanoda": true
+}

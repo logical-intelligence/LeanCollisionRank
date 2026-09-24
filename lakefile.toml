@@ -5,17 +5,17 @@ defaultTargets = ["main", "proofs.verification.Audit"]
 [[require]]
 name = "mathlib"
 git = "https://github.com/leanprover-community/mathlib4.git"
-rev = "v4.32.1"
+rev = "v4.34.0"
 
 [[require]]
 name = "Comparator"
 git = "https://github.com/leanprover/comparator.git"
-rev = "07bc4ea40f2266dcb861820a2ec1fa3244ed307f"
+rev = "d03acab154d269c06e60e4de7e4cc85deebff94b"
 
 [[require]]
 name = "lean4export"
 git = "https://github.com/leanprover/lean4export.git"
-rev = "4e7915201d3f9f04470d9eae002fa695f7cdc589"
+rev = "076e8e57707e813375e8f9da8bf989799ace9680"
 
 [[lean_lib]]
 name = "CollisionRank"

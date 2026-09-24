@@ -238,7 +238,7 @@ theorem leafToVertex_pathProduct {A : Finset G} {d : ℕ}
     vertexPathProduct l (leafToVertex v) = leafPathProduct l v := by
   rcases v with ⟨i, b⟩
   simp [vertexPathProduct, vertexAddress, leafPathProduct, exactWordProduct,
-    leafWord, leafAddress, leafToVertex]
+    leafWord, leafAddress, leafToVertex, Fin.cast]
 
 theorem leafToVertex_incomparable_of_ne {d : ℕ} {v w : Leaf d}
     (hvw : v ≠ w) : Incomparable (leafToVertex v) (leafToVertex w) := by

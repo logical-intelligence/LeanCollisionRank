@@ -85,15 +85,15 @@ run_cmd do
 #guard_msgs in
 #print axioms CollisionRank.exists_group_symmetric_rank_at_most_two_given_assumed_non_SG
 
-/-- info: 'CollisionRank.fixedStageAt_iff_finiteFixedStageAt' depends on axioms: [propext, Quot.sound] -/
+/-- info: 'CollisionRank.fixedStageAt_iff_finiteFixedStageAt' depends on axioms: [propext, Classical.choice, Quot.sound] -/
 #guard_msgs in
 #print axioms CollisionRank.fixedStageAt_iff_finiteFixedStageAt
 
-/-- info: 'CollisionRank.fixedReducesIn_padding' depends on axioms: [propext, Quot.sound] -/
+/-- info: 'CollisionRank.fixedReducesIn_padding' depends on axioms: [propext, Classical.choice, Quot.sound] -/
 #guard_msgs in
 #print axioms CollisionRank.fixedReducesIn_padding
 
-/-- info: 'CollisionRank.symmetricReducesIn_padding' depends on axioms: [propext, Quot.sound] -/
+/-- info: 'CollisionRank.symmetricReducesIn_padding' depends on axioms: [propext, Classical.choice, Quot.sound] -/
 #guard_msgs in
 #print axioms CollisionRank.symmetricReducesIn_padding
 

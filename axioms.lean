@@ -11,7 +11,8 @@ specify exactly what is assumed. No identification with a concrete Sturmian
 subshift or topological full group is encoded here.
 
 A01-A05 are permitted for T06. T07 additionally permits A06-A07.
-T01-T05 do not depend on these axioms; their verifier permits no project axioms.
+T01-T05 do not depend on these axioms. Audit.lean checks the exact axiom
+dependencies of each theorem; Comparator uses one shared allowlist.
 -/
 
 namespace CollisionRank

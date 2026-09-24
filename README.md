@@ -2,7 +2,7 @@
 
 A Lean formalization of a conditional upper bound of two on symmetric fixed-tree
 collision rank, with a specialization to an axiomatized Sturmian group.
-Built on Lean **4.32.1** and Mathlib **v4.32.1**.
+Built on Lean **4.34.0** and Mathlib **v4.34.0**.
 
 ## Statements
 
@@ -17,11 +17,36 @@ theorem relative_symmetric_rank_at_most_two {G : Type u} [Group G]
 descriptions. [definitions.lean](definitions.lean) specifies the definitions
 and conventions used in those statements.
 
+### Relation to the paper
+
+The mathematical source is
+[4-manifold topology and collision rank of groups](https://arxiv.org/abs/2609.25198v1)
+(version 1, 21 September 2026). The formalization covers the fixed-tree
+upper-bound argument, with the following correspondence:
+
+| Part of the paper | Coverage in Lean |
+|---|---|
+| Fixed-tree stages and rank, Definitions 2.1–2.2 | `FixedStage` and `SymmetricCollisionRankAtMost` in `definitions.lean` |
+| Abstract collision argument and periodic-block bounds, Lemma 2.4 and Section 4 | T01–T05: collision certificates, periodic-window estimates, and the relative upper bound |
+| Sturmian application, Section 5 | T06 gives the upper bound under A01–A05; T07 combines it with the assumed nonmembership A07 |
+
+The paper's Theorem 1.2 proves exact rank two and further properties of concrete
+Sturmian groups. The concrete group construction, the matching lower bound, finite
+generation, infinitude, simplicity, amenability, and the continuum family of
+examples are outside this formalization. So are the topological application
+(Theorem 1.1) and the equivalence with the game formulation (Remark 2.3).
+
+### External assumptions
+
 T01–T05 depend only on `propext`, `Classical.choice`, and `Quot.sound`.
 T06 applies the bound to `SturmianGroup` using A01–A05 from
 [axioms.lean](axioms.lean). T07 also uses A06–A07 to obtain a group with this
 bound and `¬ InSG G`. The named carrier and the predicate `InSG` are opaque
 inputs; the applications depend on the stated external assumptions.
+
+The intended witness is the derived topological full group of the Sturmian
+subshift with slope `[0; 2, 3, 4, …]`. Its identification with the named Lean
+carrier, and the interpretation of `InSG` as membership in SG/SAG, are external.
 
 The following sources describe the intended mathematical inputs. In Lean,
 these inputs remain explicit assumptions.
@@ -40,9 +65,9 @@ and never imports the reference. The seven `sorry` bodies in `main.lean` are
 intentional placeholders for the reference statements, so their warnings are
 expected. They are excluded from the implementation.
 
-- **Build and axiom audit.** `lake build` checked the project sources using the
-  pinned dependency caches. [Audit.lean](proofs/verification/Audit.lean) checked
-  all 379 implementation declarations, including unused and private helpers:
+- **Build and axiom audit.** `lake build` checked the project sources with the
+  pinned dependencies. [Audit.lean](proofs/verification/Audit.lean) checked
+  every implementation declaration, including unused and private helpers:
   exactly seven project axioms, with no `sorryAx` dependencies. It also fixes
   each main theorem's exact axiom dependencies with guarded `#print axioms`
   commands. Any change to those dependencies fails the build, even if the new
@@ -53,9 +78,9 @@ expected. They are excluded from the implementation.
   [comparator.json](proofs/verification/comparator.json) and replayed the exported
   proof dependencies through Lean's kernel. Result: `Your solution is okay!`.
 - **[nanoda](https://github.com/ammkrn/nanoda_lib).** The independent Rust kernel,
-  version 0.4.13 without patches, accepted the same solution export. It runs
+  version 0.4.19 without patches, accepted the same solution export. It runs
   inside Comparator with `enable_nanoda: true`; both kernels must accept.
-  Result: `Nanoda kernel accepts the solution`.
+  Result: `nanoda kernel accepts the solution`.
 
 These checks establish the Lean results under the listed assumptions. The
 public reference and checking configuration are trusted inputs; correspondence
@@ -75,12 +100,12 @@ lake exe cache get
 lake build comparator lean4export
 
 git clone https://github.com/ammkrn/nanoda_lib.git .lake/nanoda
-git -C .lake/nanoda checkout --detach 418320295890faed83a96fd97907b12a3b6728c2
+git -C .lake/nanoda fetch origin 3a2407216ee84a75f9e1aead6803d0578be06ae7
+git -C .lake/nanoda checkout --detach 3a2407216ee84a75f9e1aead6803d0578be06ae7
 cargo build --release --locked --manifest-path .lake/nanoda/Cargo.toml
 ```
 
-Omit `git clone` when reusing the checkout. If the Mathlib cache download fails,
-try `lake exe cache get --cache-from=legacy`. Tools and build products stay in `.lake/`.
+Omit `git clone` when reusing the checkout. Tools and build products stay in `.lake/`.
 
 Run the build, axiom audit, comparison, and both kernels:
 

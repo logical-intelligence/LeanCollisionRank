@@ -259,9 +259,8 @@ not require closure under multiplication and does not make A a subgroup.
 def IsLabelSet (A : Finset G) : Prop :=
   (1 : G) ∈ A ∧ ∀ g ∈ A, g⁻¹ ∈ A
 
--- Generate this reference matcher independently, as in the implementation's
--- Symmetric module. This option only disables executable code generation for
--- auxiliary matchers; it leaves the logical definition available to the kernel.
+-- Disable executable code generation for auxiliary matchers in this reference.
+-- The logical definition remains available to the kernel.
 set_option bootstrap.genMatcherCode false in
 /--
 D22. An exact r-stage chain of fixed-tree stages from A to {1}, with every

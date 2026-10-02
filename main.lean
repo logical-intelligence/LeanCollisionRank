@@ -123,10 +123,11 @@ T07. There exist a type G in universe zero and a group structure on that same
 type such that G has symmetric collision rank at most two and the opaque
 proposition InSG G is false for that structure. The rank bound comes from T06 
 and uses A01-A05. The second conjunct is not derived: InSG has no defining 
-properties, so A07 supplies it directly at the witness. T07 therefore adds 
-no verified content beyond T06; it records the logical shape of the paper's 
-main existence statement.  This does not internally define SG or construct 
-the actual Sturmian group, and it does not claim rank exactly two.
+properties, so A07 supplies it directly at the witness. T07 records a weakened,
+conditional form of the paper's existence result: an upper bound of two,
+without asserting finite generation, and with nonmembership supplied by A07.
+This does not internally define SG or construct the actual Sturmian group,
+and it does not claim rank exactly two.
 -/
 theorem exists_group_symmetric_rank_at_most_two_given_assumed_non_SG :
     ∃ (G : Type) (inst : Group G),
